@@ -1,0 +1,35 @@
+{
+  "name": "wdk-signer-fireblocks-evm",
+  "version": "0.0.1",
+  "description": "Fireblocks signer for the Tether WDK, implements ISignerEvm from @tetherto/wdk-wallet-evm on RAW and TYPED_MESSAGE signing",
+  "main": "./index.js",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "example": "node --env-file=.env examples/sign-with-fireblocks.js"
+  },
+  "license": "Apache-2.0",
+  "type": "module",
+  "devDependencies": {
+    "@fireblocks/ts-sdk": "^31.0.0",
+    "@tetherto/wdk-wallet-evm": "^1.0.0-beta.18",
+    "ethers": "^6.17.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./package": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "src/"
+  ],
+  "peerDependencies": {
+    "@fireblocks/ts-sdk": ">=30.0.0",
+    "@tetherto/wdk-wallet-evm": "^1.0.0-beta.18",
+    "ethers": "^6.13.0"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/G9NCUE/wdk-signer-fireblocks-evm"
+  }
+}
