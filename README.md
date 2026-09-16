@@ -56,6 +56,7 @@ node --env-file=.env examples/sign-with-fireblocks.js   # the four operations ag
 
 ## Status
 
-Prototype, not published on npm (`"private": true`). Written against the SDK's types and the
-public docs, not yet run against a live workspace. See
+Prototype, not published on npm (`"private": true`). Verified on 2026-09-16 against a sandbox
+workspace: the four operations recover to the vault account's address, 14 s for the four calls, each
+one a Fireblocks transaction polled to `COMPLETED`. See
 [wdk-signers-demo](https://github.com/G9NCUE/wdk-signers-demo).
