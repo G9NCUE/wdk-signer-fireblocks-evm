@@ -49,7 +49,8 @@ export class FakeFireblocksClient {
   _digest ({ operation, extraParameters }) {
     const [m] = extraParameters.rawMessageData.messages
     if (operation === 'RAW') {
-      if (extraParameters.rawMessageData.algorithm !== 'MPC_ECDSA_SECP256K1') throw new Error('fake: bad algorithm')
+      if (extraParameters.rawMessageData.algorithm) throw new Error('fake: UNALLOWED_RAW_PARAM_COMBINATION, algorithm with assetId')
+      if (m.bip44addressIndex !== 0 || m.bip44change !== 0) throw new Error('fake: index and change name the key')
       if (m.content.length !== 64) throw new Error('fake: RAW content must be 32 bytes')
       return '0x' + m.content
     }

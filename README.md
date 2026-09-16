@@ -13,8 +13,8 @@ is **not derivable**: register it by name with `wallet.addSigner()`.
 |---|---|---|
 | `sign(message)` | `TYPED_MESSAGE`, `EIP191` | the message bytes, Fireblocks adds the prefix |
 | `signTypedData(...)` | `TYPED_MESSAGE`, `EIP712` | the full typed payload |
-| `signTransaction(tx)` | `RAW`, `MPC_ECDSA_SECP256K1` | the unsigned hash only |
-| `signAuthorization(auth)` | `RAW`, `MPC_ECDSA_SECP256K1` | the EIP-7702 hash only |
+| `signTransaction(tx)` | `RAW`, key named by vault account, asset and index | the unsigned hash only |
+| `signAuthorization(auth)` | `RAW`, same | the EIP-7702 hash only |
 
 Each signature is a Fireblocks transaction polled until `COMPLETED` (default every 2 s, 3 min
 timeout). `BLOCKED`, `REJECTED`, `FAILED`, `CANCELLED` reject with the sub-status. The signer does

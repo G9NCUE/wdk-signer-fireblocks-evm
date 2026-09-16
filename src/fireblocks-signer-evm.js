@@ -102,7 +102,9 @@ export default class FireblocksSignerEvm extends ISigner {
   }
 
   async _signRaw (digest) {
-    return this._submit('RAW', { algorithm: 'MPC_ECDSA_SECP256K1', messages: [{ content: digest.slice(2), bip44addressIndex: 0, bip44change: 0 }] })
+    // the key is named implicitly by vault account, asset, change and index; adding `algorithm` on top
+    // is refused (UNALLOWED_RAW_PARAM_COMBINATION), it belongs to the explicit derivationPath form
+    return this._submit('RAW', { messages: [{ content: digest.slice(2), bip44addressIndex: 0, bip44change: 0 }] })
   }
 
   async _signTyped (message) {
